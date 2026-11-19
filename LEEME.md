@@ -14,3 +14,8 @@ Carpeta `servidor_vision/`: lee las cámaras con **OpenCV** (RTSP, video o captu
 
 ## Pestaña «Monitoreo en vivo»
 Panel verde con las cámaras procesadas por YOLO + OpenCV, controles de análisis, productos por anaquel (stock y demanda), comparación de anaqueles, dona de interacción, mapa de calor por hora, interpretación y verificación del sistema. Solo datos reales del servidor (el histórico 6–18 nov aparece marcado como estimado).
+
+## Versión 19 nov (tarde)
+- Una sola conexión de Hik-Connect (botón arriba, en todas las pestañas). Por seguridad del navegador, al recargar la página hay que volver a pulsar «Conectar»; el mosaico y los nombres de cámara se recuerdan.
+- Monitoreo en vivo cuenta personas con la vista de Hik-Connect (detector en el navegador) y guarda los conteos en este navegador; el servidor YOLO es opcional.
+- Cada pestaña tiene una ayuda «En esta pantalla». Botón «Exportar a Excel» con todas las tablas.
