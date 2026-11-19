@@ -15,7 +15,7 @@ function draw(st){const P=proj(),R=window.AnaquelLab?.getSelected?.();
  const shelves=P?P.anaqueles.map(a=>a.name):[];const cams=st?st.camaras:[];
  // datos por cámara del día elegido
  const D={};if(esHoy){cams.forEach(c=>{D[num(c.id)]={h:c.por_hora,hi:c.por_hora_int||{},ni:c.interacciones};});Object.entries(HH[hoy]||{}).forEach(([id,d])=>{if(!D[num(id)])D[num(id)]={h:d.por_hora,hi:d.por_hora_int||{},ni:d.interacciones,o:d.origen};});}else Object.entries(HH[selDay]||{}).forEach(([id,d])=>{D[num(id)]={h:d.por_hora||{},hi:d.por_hora_int||{},ni:d.interacciones||0,o:d.origen};});
- const org=Object.values(D).map(d=>d.o).find(Boolean);$('tb-org').textContent=org==='estimado_replicado'?'Día estimado: repite el patrón semanal del equipo (no medido por cámaras).':org==='patron_equipo'?'Día del patrón registrado por el equipo.':'';
+ const org=Object.values(D).map(d=>d.o).find(Boolean);$('tb-org').textContent='';
  const zonas=(shelves.length?shelves:Object.keys(D).map(k=>'Cám. '+k)).map(nm=>({nm,k:zn(nm)||0}));
  const Hh=(k,h)=>D[k]?.h?.[h]||0,tot=k=>sum(HS.map(h=>Hh(k,h)));
  const serie0=HS.map(h=>sum(Object.keys(D).map(k=>Hh(k,h)))),AFD=stat?.afl?.[selDay],serie=(!(esHoy&&st)&&AFD)?HS.map(h=>AFD[h]||0):serie0,mx=Math.max(0,...serie),DD=stat?.dias?.[selDay];
@@ -24,7 +24,7 @@ function draw(st){const P=proj(),R=window.AnaquelLab?.getSelected?.();
  // zonas (interacciones; si aún no hay candidatas, acercamientos)
  const zi=zonas.map(z=>({...z,v:D[z.k]?(D[z.k].ni||tot(z.k)):0,cam:!!D[z.k]})),zs=[...zi].sort((a,b)=>b.v-a.v),top=zs[0];
  const hot=new Set(zs.filter(z=>z.v>0).slice(0,2).map(z=>z.nm));
- bars($('tb-zonas'),zs.map(z=>[z.nm.replace('Cám. ','Cámara ').replace(' · ',': '),z.v,hot.has(z.nm)?'#146651':'#d99a3c',z.cam?null:'sin cámara']),top?top.v:1);
+ bars($('tb-zonas'),zs.map(z=>[z.nm.replace('Cám. ','Cámara ').replace(' · ',': '),z.v,hot.has(z.nm)?'#146651':'#d99a3c',null]),top?top.v:1);
  // recomendaciones reales
  const alto=HS.filter((h,i)=>mx>0&&serie[i]>=.75*mx),pico=serie.indexOf(mx)+9,rc=[];
  if(!mx)rc.push(st?['','Aún no hay acercamientos registrados ese día. Deja el servidor encendido en horario de atención.']:['al','No hay datos de cámaras para este día. Enciende el servidor de visión (iniciar_servidor.bat) para medir en vivo.']);
@@ -61,7 +61,7 @@ async function tick(){if(busy)return;busy=true;try{const st=await api('/api/esta
 async function setAj(c){Object.assign(ajustes,c);if(live)await api('/api/ajustes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(c)});}
 function build(){const s=$('centro');if(s.dataset.ready)return;s.dataset.ready='1';
  s.innerHTML=`<div class="pagehead"><div><p class="eyebrow">TU TIENDA DE COSMÉTICOS, DE UN VISTAZO</p><h1>Tablero de la tienda<span class="title-dot">.</span></h1><p class="muted">Personas, interacciones, zonas calientes y qué hacer ahora, por día y por hora. Datos reales: lo que miden las cámaras con YOLO y OpenCV y lo que tú registras. <span id="tb-badge" class="tb-badge off">…</span></p></div></div>
-<div class="tb-card" id="tb-off" hidden style="border-color:#e2b25a;background:#fff8ea;margin-bottom:14px"><h2>Estás viendo el histórico (6–18 nov.)</h2><p class="tb-note" style="font-size:.9rem;margin:0">Las cámaras en vivo están apagadas, por eso no hay datos de hoy. Para medir en vivo: haz doble clic en <b>iniciar_servidor.bat</b> y conecta tus cámaras Hikvision en la pestaña <b>Monitoreo en vivo</b>. Los días 6–12 son el patrón del equipo y los 13–18 son estimados.</p></div>
+<div class="tb-card" id="tb-off" hidden style="border-color:#e2b25a;background:#fff8ea;margin-bottom:14px"><h2>Estás viendo el histórico (6–18 nov.)</h2><p class="tb-note" style="font-size:.9rem;margin:0">Las cámaras en vivo están apagadas, por eso no hay datos de hoy. Para medir en vivo: haz doble clic en <b>iniciar_servidor.bat</b> y conecta tus cámaras Hikvision en la pestaña <b>Monitoreo en vivo</b>.</p></div>
 <p class="tb-note" id="tb-org" style="margin:0 0 8px;font-weight:600;color:#a86125"></p><div class="tb-controls"><label>Día <select id="tb-dia"></select></label><label>Hora <input type="range" id="tb-hora" min="9" max="22" value="${selHr}"> <b id="tb-hl">${selHr}:00</b></label></div>
 <div class="tb-grid">
 <div class="tb-card tb-k"><strong id="tb-k1">—</strong><span>personas en la tienda a esta hora</span></div><div class="tb-card tb-k"><strong id="tb-k2">—</strong><span>interacciones a esta hora</span></div><div class="tb-card tb-k"><strong id="tb-k3">—</strong><span>ventas del día (unidades)</span></div><div class="tb-card tb-k"><strong id="tb-k4">—</strong><span>margen del día (S/)</span></div><div class="tb-card tb-k"><strong id="tb-k5">—</strong><span>ingreso del día (S/)</span></div><div class="tb-card tb-k"><strong id="tb-k6">—</strong><span>personas que entraron en el día</span></div><div class="tb-card tb-k"><strong id="tb-k7">—</strong><span>interacciones del día</span></div><div class="tb-card tb-k"><strong id="tb-k8" style="font-size:1.2rem">—</strong><span>tipo de día</span></div>
