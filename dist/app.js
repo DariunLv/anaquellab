@@ -15,7 +15,7 @@ const scratch=document.createElement('canvas');scratch.width=160;scratch.height=
 const frameCanvas=document.createElement('canvas');frameCanvas.width=640;frameCanvas.height=360;const fx=frameCanvas.getContext('2d');
 function notify(message,error=false){if(error){$('notice').textContent=message;$('notice').hidden=false;window.scrollTo({top:0,behavior:'smooth'});}else{$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,4200);}}
 function clearNotice(){$('notice').hidden=true;}
-function save(){try{localStorage.setItem('anaquellab.project.v1',JSON.stringify(project));}catch{notify('No se pudo guardar en el navegador. Exporta el proyecto para conservarlo.',true);}updateBadge();}
+function save(){try{localStorage.setItem('anaquellab.project.v2',JSON.stringify(project));}catch{notify('No se pudo guardar en el navegador. Exporta el proyecto para conservarlo.',true);}updateBadge();}
 function updateBadge(){$('data-badge').textContent=/ejemplo|simulad|fictici|estimad/i.test(project.procedencia||'')?'Histórico (parte estimada)':'Datos del proyecto';}
 function invalidate(){revision++;result=null;selected=null;$('results').hidden=true;$('result-empty').hidden=false;$('solve-status').textContent='Los datos cambiaron. Calcula una nueva distribución.';save();studio?.invalidate();}
 function download(name,data,type='application/json'){const blob=new Blob([typeof data==='string'?data:JSON.stringify(data,null,2)],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);}
@@ -97,7 +97,7 @@ $('export-result').onclick=()=>{if(result)download('AnaquelLab-informe.json',{..
 const csvCell=v=>`"${String(v??'').replace(/^[=+@-]/,"'$&").replaceAll('"','""')}"`;
 $('export-csv').onclick=()=>{if(!selected)return;const cols=['sku','producto','anaquel','frentes','ancho_cm','capital','ventas_estimadas','margen_estimado','actividad_indice'];download('AnaquelLab-distribucion.csv','\uFEFF'+[cols,...selected.filas.map(x=>cols.map(k=>x[k]))].map(r=>r.map(csvCell).join(';')).join('\r\n'),'text/csv;charset=utf-8');};
 window.addEventListener('beforeunload',()=>{stream?.getTracks().forEach(t=>t.stop());if(fileUrl)URL.revokeObjectURL(fileUrl);});
-try {const saved=localStorage.getItem('anaquellab.project.v1');if(saved){try{project=validate(JSON.parse(saved));}catch{notify('Los datos guardados no son válidos. Se cargó el ejemplo.',true);}}}catch{/* Private mode can disable storage. */}
+try {const saved=localStorage.getItem('anaquellab.project.v2');if(saved){try{project=validate(JSON.parse(saved));}catch{notify('Los datos guardados no son válidos. Se cargó el ejemplo.',true);}}}catch{/* Private mode can disable storage. */}
 try {if(!project)project=validate(await(await fetch('./ejemplo.json')).json());studio=new ResearchUI({getProject:()=>project,changed:()=>{invalidate();renderCatalog();},notify,download,navigate:page});renderCatalog();initExperience({navigate:page});page(location.hash.slice(1)||'inicio');}catch(e){notify(`No se pudo abrir el proyecto: ${e.message}`,true);}
 
 function syncCrop(){for(const k of ['x','y','w','h'])$('crop-'+k).value=(crop[k]*100).toFixed(1);}

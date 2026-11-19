@@ -319,7 +319,7 @@ def crear_app(workers):
     from fastapi.responses import StreamingResponse
     from fastapi.staticfiles import StaticFiles
     app = FastAPI(title="AnaquelLab · Servidor de visión")
-    app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+    app.add_middleware(CORSMiddleware, allow_origin_regex=r"^(https?://(localhost|127\.0\.0\.1)(:\d+)?|https://[a-z0-9-]+\.vercel\.app)$", allow_methods=["*"], allow_headers=["*"])
 
     @app.get("/api/estado")
     def estado():
@@ -393,6 +393,35 @@ def crear_app(workers):
         for sku, it, v, ing, mg, org in consultar("SELECT sku, SUM(interacciones), SUM(ventas), SUM(ingreso), SUM(margen), MAX(origen) FROM historico_prod WHERE dia=? GROUP BY sku", (dia,)):
             out[sku] = {"interacciones": it, "ventas": v, "ingreso": round(ing, 2), "margen": round(mg, 2), "origen": org}
         return out
+
+    @app.post("/api/configurar")
+    def configurar(datos: dict):
+        """Guarda las cámaras Hikvision (RTSP del DVR) en config.json y reinicia el servidor. La clave solo se escribe en este archivo local."""
+        import json as _json
+        import os
+        import re
+        from urllib.parse import quote
+        ip = str(datos.get("ip", "")).strip()
+        puerto = str(datos.get("puerto", "554")).strip() or "554"
+        if not re.fullmatch(r"[A-Za-z0-9.\-]{3,100}", ip) or not puerto.isdigit():
+            return {"ok": False, "error": "IP o puerto no válidos."}
+        canales = [int(c) for c in datos.get("canales", []) if str(c).isdigit() and 0 < int(c) < 65][:16]
+        if not canales or not datos.get("usuario") or not datos.get("clave"):
+            return {"ok": False, "error": "Faltan usuario, clave o canales."}
+        ruta = AQUI / "config.json"
+        cfg = _json.loads(ruta.read_text(encoding="utf-8"))
+        previas = {c["id"]: c for c in cfg.get("camaras", [])}
+        nuevas = []
+        for i, ch in enumerate(canales):
+            cid = f"cam{ch:02d}"
+            base = previas.get(cid, {})
+            nuevas.append({"id": cid, "nombre": f"Cámara {ch:02d}", "anaquel": base.get("anaquel", chr(65 + i)), "zona": base.get("zona", f"Zona {ch}"),
+                           "fuente": f"rtsp://{quote(str(datos['usuario']), safe='')}:{quote(str(datos['clave']), safe='')}@{ip}:{puerto}/Streaming/Channels/{ch}01",
+                           "roi": base.get("roi", [0.05, 0.15, 0.9, 0.8])})
+        cfg["camaras"] = nuevas
+        ruta.write_text(_json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
+        threading.Timer(1.0, lambda: os._exit(3)).start()  # el .bat lo vuelve a encender con la nueva configuración
+        return {"ok": True}
 
     @app.get("/api/calor/{cid}")
     def calor(cid: str):

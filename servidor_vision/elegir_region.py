@@ -1,16 +1,30 @@
-"""Ayuda para capturar la pantalla: te deja marcar con el mouse la región donde se ven las cámaras de Hik-Connect
-y te imprime la línea para pegar en config.json (campo "fuente").
+"""Conecta las cámaras viendo la pantalla de Hik-Connect (cuando no puedes usar la dirección del DVR).
 
-Pasos: 1) abre Hik-Connect con las cámaras visibles en pantalla completa  2) ejecuta:  python elegir_region.py
-       3) arrastra un rectángulo sobre las cámaras y pulsa ENTER  4) copia la línea "pantalla:..." a config.json."""
+1) Abre Hik-Connect con las cámaras visibles.  2) Haz doble clic en elegir_region.bat.
+3) Para cada cámara de config.json: arrastra un rectángulo sobre ESA cámara y pulsa ENTER.
+   (si no quieres cambiar esa cámara, pulsa ESC).  El programa guarda todo solo en config.json."""
+import json
+from pathlib import Path
 import cv2, mss, numpy as np
+
+ruta = Path(__file__).resolve().parent / "config.json"
+cfg = json.loads(ruta.read_text(encoding="utf-8"))
 with mss.mss() as s:
     mon = s.monitors[1]
-    img = np.array(s.grab(mon))[:, :, :3]
-img = np.ascontiguousarray(img)
-x, y, w, h = cv2.selectROI("Marca la región con las cámaras y pulsa ENTER", img, showCrosshair=True)
-cv2.destroyAllWindows()
-if w and h:
-    print(f'\n"fuente": "pantalla:{mon["left"] + x},{mon["top"] + y},{w},{h}"\n')
+    img = np.ascontiguousarray(np.array(s.grab(mon))[:, :, :3])
+cambios = 0
+for cam in cfg["camaras"]:
+    titulo = f"Marca {cam['nombre']} ({cam.get('zona', '')}) y pulsa ENTER  |  ESC = saltar"
+    x, y, w, h = cv2.selectROI(titulo, img, showCrosshair=True)
+    cv2.destroyAllWindows()
+    if w > 20 and h > 20:
+        cam["fuente"] = f"pantalla:{mon['left'] + x},{mon['top'] + y},{w},{h}"
+        cambios += 1
+        print(f"✔ {cam['nombre']} guardada.")
+    else:
+        print(f"– {cam['nombre']}: sin cambios.")
+if cambios:
+    ruta.write_text(json.dumps(cfg, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\nListo: {cambios} cámara(s) guardadas en config.json. Reinicia el servidor (iniciar_servidor.bat).")
 else:
-    print("No se marcó ninguna región.")
+    print("\nNo se cambió nada.")

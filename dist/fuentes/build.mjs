@@ -1,6 +1,6 @@
 import {mkdir,copyFile,cp,readFile,writeFile} from 'node:fs/promises';
 await mkdir('dist/vendor',{recursive:true});
-for(const name of ['index.html','app.js','model.js','vision.js','research.js','studio.js','detector.js','style.css','studio.css','experience.css','experience.js','centro.js','centro.css','monitoreo.js','monitoreo.css','ejemplo.json','LEEME.md']) await copyFile(name,`dist/${name}`);
+for(const name of ['index.html','app.js','model.js','vision.js','research.js','studio.js','detector.js','style.css','studio.css','experience.css','experience.js','centro.js','centro.css','monitoreo.js','monitoreo.css','ejemplo.json','historico.json','LEEME.md']) await copyFile(name,`dist/${name}`);
 await cp('assets/ui','dist/assets/ui',{recursive:true});
 await copyFile('node_modules/lottie-web/build/player/lottie_light.min.js','dist/vendor/lottie_light.min.js');
 await copyFile('node_modules/lottie-web/LICENSE.md','dist/vendor/LICENSE-LOTTIE.md');
