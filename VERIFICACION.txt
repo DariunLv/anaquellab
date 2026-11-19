@@ -1,0 +1,12 @@
+AnaquelLab Web — verificación 11/11/2026
+URL: https://anaquellab-web.vercel.app
+8 pruebas automatizadas aprobadas (modelo entero, restricciones, infeasibilidad, validación y movimiento sintético).
+Prueba en navegador local y en Vercel: recomendación del ejemplo S/ 467.59; índice 33.4062; capital S/ 214.00; sin errores de consola observados.
+El usuario concedió el permiso para compartir su pestaña de Hik-Connect.
+Se observaron las nueve imágenes reales en AnaquelLab y se ajustó el recorte del mosaico.
+Se comprobó el orden de las cámaras: 13, 02, 04, 06, 09, 12, 14, 15, 16.
+Hik-Connect impuso pausa de cinco minutos; se reanudó con Resume Playing.
+No existe integración directa/desatendida con el DVR. No se enviaron ni almacenaron imágenes en Vercel.
+No se ha validado científicamente el indicador visual contra interacciones comerciales o ventas reales.
+
+Actualización 19/11/2026: catálogo de ejemplo cambiado a cosméticos (Moquegua 2) y se agregó el Tablero de la tienda. 13 pruebas automatizadas aprobadas. La recomendación del ejemplo ya no es S/ 467.59: cambió con el nuevo catálogo.

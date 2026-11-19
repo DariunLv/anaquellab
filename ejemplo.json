@@ -1,0 +1,974 @@
+{
+ "version": 1,
+ "procedencia": "Histórico Moquegua 2 del 6 al 18 de nov. de 2026: 6–12 = patrón del equipo; 13–18 = estimado repitiendo ese patrón (ver columna origen). Anchos, stock y capacidades son estimaciones: reemplázalos con datos reales.",
+ "periodo": "Semana",
+ "presupuesto": 320,
+ "productos": [
+  {
+   "sku": "P1",
+   "name": "Sombras económicas",
+   "width": 6,
+   "price": 9,
+   "cost": 5.4,
+   "stock": 407,
+   "demand": 324,
+   "units_per_facing": 78.3,
+   "appeal": 3.3,
+   "min_faces": 0,
+   "max_faces": 5,
+   "current_shelf": "Cám. 3 · Sombras y polvos",
+   "current_faces": 3
+  },
+  {
+   "sku": "P2",
+   "name": "Sombras premium",
+   "width": 7,
+   "price": 28,
+   "cost": 17,
+   "stock": 160,
+   "demand": 127,
+   "units_per_facing": 30.7,
+   "appeal": 2.2,
+   "min_faces": 0,
+   "max_faces": 5,
+   "current_shelf": "Cám. 3 · Sombras y polvos",
+   "current_faces": 3
+  },
+  {
+   "sku": "P3",
+   "name": "Polvos económicos",
+   "width": 8,
+   "price": 8,
+   "cost": 5,
+   "stock": 342,
+   "demand": 272,
+   "units_per_facing": 98.6,
+   "appeal": 2.8,
+   "min_faces": 0,
+   "max_faces": 4,
+   "current_shelf": "Cám. 3 · Sombras y polvos",
+   "current_faces": 2
+  },
+  {
+   "sku": "P4",
+   "name": "Polvos premium",
+   "width": 9,
+   "price": 17,
+   "cost": 10.5,
+   "stock": 87,
+   "demand": 68,
+   "units_per_facing": 24.7,
+   "appeal": 1.5,
+   "min_faces": 0,
+   "max_faces": 4,
+   "current_shelf": "Cám. 3 · Sombras y polvos",
+   "current_faces": 2
+  },
+  {
+   "sku": "P5",
+   "name": "Selladores de maquillaje",
+   "width": 5,
+   "price": 19,
+   "cost": 11.5,
+   "stock": 402,
+   "demand": 320,
+   "units_per_facing": 84.4,
+   "appeal": 3.8,
+   "min_faces": 0,
+   "max_faces": 5,
+   "current_shelf": "Cám. 1 · Selladores y labiales",
+   "current_faces": 3
+  },
+  {
+   "sku": "P6",
+   "name": "Labiales",
+   "width": 3,
+   "price": 8,
+   "cost": 4.8,
+   "stock": 940,
+   "demand": 751,
+   "units_per_facing": 148.6,
+   "appeal": 5.9,
+   "min_faces": 0,
+   "max_faces": 6,
+   "current_shelf": "Cám. 1 · Selladores y labiales",
+   "current_faces": 4
+  },
+  {
+   "sku": "P7",
+   "name": "Peluches pequeños",
+   "width": 12,
+   "price": 14,
+   "cost": 8,
+   "stock": 47,
+   "demand": 36,
+   "units_per_facing": 13.8,
+   "appeal": 5,
+   "min_faces": 0,
+   "max_faces": 4,
+   "current_shelf": "Cám. 5 · Lado derecho",
+   "current_faces": 4
+  },
+  {
+   "sku": "P8",
+   "name": "Peluches medianos",
+   "width": 18,
+   "price": 32,
+   "cost": 19,
+   "stock": 17,
+   "demand": 12,
+   "units_per_facing": 7.8,
+   "appeal": 3.3,
+   "min_faces": 0,
+   "max_faces": 3,
+   "current_shelf": "Cám. 6 · Lado izquierdo",
+   "current_faces": 3
+  }
+ ],
+ "anaqueles": [
+  {
+   "name": "Cám. 1 · Selladores y labiales",
+   "capacity": 45,
+   "visibility": 1.2,
+   "activity": 0.92
+  },
+  {
+   "name": "Cám. 2 · Entrada",
+   "capacity": 50,
+   "visibility": 1.38,
+   "activity": 0.2
+  },
+  {
+   "name": "Cám. 3 · Sombras y polvos",
+   "capacity": 76,
+   "visibility": 1.31,
+   "activity": 0.74
+  },
+  {
+   "name": "Cám. 4 · Pasillo central",
+   "capacity": 55,
+   "visibility": 0.85,
+   "activity": 0.38
+  },
+  {
+   "name": "Cám. 5 · Lado derecho",
+   "capacity": 50,
+   "visibility": 0.62,
+   "activity": 0.32
+  },
+  {
+   "name": "Cám. 6 · Lado izquierdo",
+   "capacity": 75,
+   "visibility": 0.49,
+   "activity": 0.3
+  },
+  {
+   "name": "Cám. 7 · Caja y salida",
+   "capacity": 45,
+   "visibility": 1,
+   "activity": 0.24
+  }
+ ],
+ "sales": [
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 47,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 25,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 56,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 15,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 62,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 138,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 5,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-06",
+   "quantity": 6,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-07",
+   "quantity": 68,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-07",
+   "quantity": 23,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-07",
+   "quantity": 47,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-07",
+   "quantity": 13,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-07",
+   "quantity": 71,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-07",
+   "quantity": 159,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-07",
+   "quantity": 4,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 75,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 28,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 55,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 21,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 48,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 117,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 8,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-08",
+   "quantity": 2,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 30,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 14,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 24,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 7,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 42,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 79,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 5,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-09",
+   "quantity": 1,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-10",
+   "quantity": 23,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-10",
+   "quantity": 17,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-10",
+   "quantity": 30,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-10",
+   "quantity": 4,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-10",
+   "quantity": 30,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-10",
+   "quantity": 84,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-10",
+   "quantity": 4,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 48,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 9,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 36,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 3,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 28,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 80,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 7,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-11",
+   "quantity": 2,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 33,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 11,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 24,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 5,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 39,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 94,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 3,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-12",
+   "quantity": 1,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 45,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 24,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 55,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 14,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 59,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 129,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 4,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-13",
+   "quantity": 6,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-14",
+   "quantity": 66,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-14",
+   "quantity": 23,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-14",
+   "quantity": 46,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-14",
+   "quantity": 13,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-14",
+   "quantity": 70,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-14",
+   "quantity": 155,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-14",
+   "quantity": 4,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 74,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 28,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 55,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 21,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 47,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 114,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 8,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-15",
+   "quantity": 2,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 30,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 14,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 24,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 7,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 42,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 79,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 5,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-16",
+   "quantity": 1,
+   "price": 32.0,
+   "cost": 19.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-17",
+   "quantity": 23,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-17",
+   "quantity": 17,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-17",
+   "quantity": 30,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-17",
+   "quantity": 4,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-17",
+   "quantity": 29,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-17",
+   "quantity": 85,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-17",
+   "quantity": 4,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P1",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 49,
+   "price": 9.0,
+   "cost": 5.4
+  },
+  {
+   "sku": "P2",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 9,
+   "price": 28.0,
+   "cost": 17.0
+  },
+  {
+   "sku": "P3",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 36,
+   "price": 8.0,
+   "cost": 5.0
+  },
+  {
+   "sku": "P4",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 3,
+   "price": 17.0,
+   "cost": 10.5
+  },
+  {
+   "sku": "P5",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 28,
+   "price": 19.0,
+   "cost": 11.5
+  },
+  {
+   "sku": "P6",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 81,
+   "price": 8.0,
+   "cost": 4.8
+  },
+  {
+   "sku": "P7",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 7,
+   "price": 14.0,
+   "cost": 8.0
+  },
+  {
+   "sku": "P8",
+   "phase": "antes",
+   "date": "2026-11-18",
+   "quantity": 2,
+   "price": 32.0,
+   "cost": 19.0
+  }
+ ]
+}

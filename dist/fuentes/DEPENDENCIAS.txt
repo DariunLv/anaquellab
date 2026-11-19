@@ -1,0 +1,4 @@
+GLPK.js 5.0.0: https://github.com/jvail/glpk.js
+Código original y submódulos: git clone --recursive https://github.com/jvail/glpk.js
+Motor GNU GLPK: https://www.gnu.org/software/glpk/
+Licencia GPLv3 en /vendor/LICENSE-GLPK.txt.

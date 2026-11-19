@@ -1,0 +1,19 @@
+{
+  "name": "anaquellab-web",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Visión y optimización multiobjetivo de anaqueles de una tienda de cosméticos (Moquegua 2, Juliaca)",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "dev": "node serve.mjs"
+  },
+  "dependencies": {
+    "@tensorflow-models/coco-ssd": "2.2.3",
+    "@tensorflow/tfjs": "4.22.0",
+    "glpk.js": "5.0.0",
+    "lottie-web": "5.13.0"
+  }
+}

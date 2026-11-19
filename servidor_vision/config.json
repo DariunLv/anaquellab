@@ -1,0 +1,43 @@
+{
+  "modelo": "yolo26n.pt",
+  "confianza": 0.35,
+  "imgsz": 640,
+  "fps_proceso": 5,
+  "umbral_permanencia_s": 3,
+  "host": "127.0.0.1",
+  "puerto": 8000,
+  "camaras": [
+    {
+      "id": "cam01",
+      "nombre": "Cámara 01",
+      "anaquel": "A",
+      "zona": "Selladores y labiales",
+      "fuente": "video_prueba.mp4",
+      "roi": [
+        0.05,
+        0.15,
+        0.9,
+        0.8
+      ]
+    },
+    {
+      "id": "cam03",
+      "nombre": "Cámara 03",
+      "anaquel": "B",
+      "zona": "Sombras y polvos",
+      "fuente": "video_prueba.mp4",
+      "roi": [
+        0.05,
+        0.15,
+        0.9,
+        0.8
+      ]
+    }
+  ],
+  "_notas": [
+    "fuente: ruta de un video .mp4 (para probar) o la dirección RTSP de la cámara Hikvision.",
+    "Ejemplo RTSP Hikvision: rtsp://USUARIO:CLAVE@192.168.1.64:554/Streaming/Channels/101  (el 101 es el canal 1, flujo principal; 301 sería el canal 3).",
+    "roi: zona del anaquel como [x, y, ancho, alto] en fracciones de la imagen (0 a 1).",
+    "Si las cámaras están en el DVR, la dirección es la del DVR y el canal cambia: 101, 201, 301, ..."
+  ]
+}

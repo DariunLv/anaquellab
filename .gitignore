@@ -1,0 +1,9 @@
+node_modules/
+servidor_vision/datos/
+servidor_vision/*.pt
+servidor_vision/video_prueba.mp4
+servidor_vision/__pycache__/
+*.pt
+_respaldo_jugueteria/
+aplicar_*.mjs
+prueba_ejemplo_cosmeticos.mjs
