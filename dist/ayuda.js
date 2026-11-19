@@ -10,6 +10,8 @@ const T={
  catalogo:['Aquí están tus productos y tus anaqueles con sus precios, costos, stock y tamaños.',['Corrige cualquier valor que no sea real: se guarda solo en este navegador.','Revisa que el ancho de cada producto y el espacio del anaquel estén en centímetros.','Luego ve a «Optimización».']],
  optimizar:['Aquí el programa propone cuántos frentes de cada producto poner y en qué anaquel, para ganar más sin pasarte del presupuesto.',['Mueve el control entre «más margen» y «más interacción».','Pulsa «Calcular distribución».','Compara con la distribución actual y descarga el resultado.']],
  informe:['Aquí se resume el estudio: qué se observó, qué se estimó y qué falta validar.',['Lee los resultados antes y después.','Descarga el informe cuando lo necesites.','Usa «Exportar a Excel» (arriba) para llevarte todos los datos.']],
+
+ basedatos:['Aquí está completa la base de datos del 6 al 18 de noviembre: ventas, personas por hora, zonas y productos.',['Mira el resumen por día arriba.','Elige un día para ver cada zona y cada producto hora por hora.','Pulsa «Exportar a Excel» para llevarte todo.']],
  metodo:['Aquí se explica cómo se calculan los números, paso a paso.',['Es una guía de lectura: no necesitas cambiar nada.','Úsala para responder preguntas sobre el método.']]
 };
 const html=id=>{const [q,l]=T[id];return `<div class="ayuda" data-ayuda="${id}"><span class="ayuda-ico">${icono('info',20)}</span><div><b>En esta pantalla</b><p>${q}</p><ol>${l.map(x=>`<li>${x}</li>`).join('')}</ol></div></div>`;};
